@@ -10,10 +10,10 @@ st.write('World')
 
 data = {
     "name": [
-        "imgs/sunset.jpeg",
-        "imgs/sunrise.jpg",
-        "imgs/daylight.jpeg",
-        "imgs/night.jpeg",
+        "sunset.jpeg",
+        "sunrise.jpg",
+        "daylight.jpeg",
+        "night.jpeg",
     ]
 }
 data = pd.DataFrame.from_dict(data)
@@ -28,12 +28,12 @@ def save_images():
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zf:
         for idx in range(len(data)):
             row = data.iloc[idx]
-            img_filepath = Path(row['name'])
+            img_filepath = Path('imgs') / row['name']
             img = Image.open(img_filepath)
             img.save(img_filepath)
             zf.write(img_filepath, img_filepath.name)
 
-        df_filepath = Path("output") / 'data.csv'
+        df_filepath = Path('data.csv')
         data.to_csv(df_filepath)
         zf.write(df_filepath, df_filepath.name)
     zip_buffer.seek(0)
@@ -46,7 +46,7 @@ st.write('---')
 st.download_button(
     "Download All Data (Zip)", 
     data=zip_buffer, 
-    file_name="images.zip", 
+    file_name="daytimes_data.zip", 
     mime="application/zip"
 )
 st.write('---')
@@ -54,7 +54,7 @@ st.write('---')
 
 for idx in range(len(data)):
     col1, col2 = st.columns([1, 1])
-    img_filename = Path(data.iloc[idx]["name"]).name
+    img_filename = Path(data.iloc[idx]["name"])
     col1.write(img_filename)
     with col2:
         img_path = Path('imgs') / img_filename

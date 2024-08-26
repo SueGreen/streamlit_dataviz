@@ -26,7 +26,8 @@ def save_images():
 
     zip_buffer = BytesIO()
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_DEFLATED, False) as zf:
-        for idx, row in enumerate(data):
+        for idx in range(len(data)):
+            row = data.iloc[idx]
             img_filepath = Path(row['name'])
             img = Image.open(img_filepath)
             img.save(img_filepath)
@@ -39,16 +40,16 @@ def save_images():
     return zip_buffer
 
 
-# # Button to save all images
-# zip_buffer = save_images()
-# st.write('---')
-# st.download_button(
-#     "Download All Data (Zip)", 
-#     data=zip_buffer, 
-#     file_name="images.zip", 
-#     mime="application/zip"
-# )
-# st.write('---')
+# Button to save all images
+zip_buffer = save_images()
+st.write('---')
+st.download_button(
+    "Download All Data (Zip)", 
+    data=zip_buffer, 
+    file_name="images.zip", 
+    mime="application/zip"
+)
+st.write('---')
 
 
 for idx in range(len(data)):

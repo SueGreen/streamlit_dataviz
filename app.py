@@ -15,7 +15,7 @@ data = [
     {"name": "imgs/sunset.jpeg"},
     {"name": "imgs/sunrise.jpg"},
     {"name": "imgs/daylight.jpeg"},
-    {"name": "imgs/night.jpg"},
+    {"name": "imgs/night.jpeg"},
 ]
 # data = pd.DataFrame.from_dict(data)
 

@@ -8,13 +8,6 @@ import zipfile
 st.title('Hello')
 st.write('World')
 
-# Sample data
-# data = [
-#     {"name": "imgs/sunset.jpeg"},
-#     {"name": "imgs/sunrise.jpg"},
-#     {"name": "imgs/daylight.jpeg"},
-#     {"name": "imgs/night.jpeg"},
-# ]
 data = {
     "name": [
         "imgs/sunset.jpeg",
@@ -46,16 +39,16 @@ def save_images():
     return zip_buffer
 
 
-# Button to save all images
-zip_buffer = save_images()
-st.write('---')
-st.download_button(
-    "Download All Data (Zip)", 
-    data=zip_buffer, 
-    file_name="images.zip", 
-    mime="application/zip"
-)
-st.write('---')
+# # Button to save all images
+# zip_buffer = save_images()
+# st.write('---')
+# st.download_button(
+#     "Download All Data (Zip)", 
+#     data=zip_buffer, 
+#     file_name="images.zip", 
+#     mime="application/zip"
+# )
+# st.write('---')
 
 
 for idx in range(len(data)):

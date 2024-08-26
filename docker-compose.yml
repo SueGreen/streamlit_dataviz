@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  streamlit-experiments:
+    build: .
+    ports:
+      - "8500:8500"
+    volumes:
+      - .:/app

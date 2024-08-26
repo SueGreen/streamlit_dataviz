@@ -15,11 +15,11 @@ st.write('World')
 #    st.success(f"Saved at '{save_dir}'.")
 #    
 
-with open(Path("images_sunset.jpeg"), "rb") as file:
+with open(Path("imgs/images_sunset.jpeg"), "rb") as file:
     btn = st.download_button(
         label="Download image",
         data=file,
-        file_name="images_sunset.jpeg",
+        file_name=Path("imgs/images_sunset.jpeg"),
         mime="image/jpeg",
     )
 

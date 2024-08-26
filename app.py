@@ -14,7 +14,7 @@ st.write('World')
 data = [
     {"name": "imgs/sunset.jpeg"},
     {"name": "imgs/sunrise.jpg"},
-    {"name": "imgs/daylight.jpg"},
+    {"name": "imgs/daylight.jpeg"},
     {"name": "imgs/night.jpg"},
 ]
 # data = pd.DataFrame.from_dict(data)

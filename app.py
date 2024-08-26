@@ -1,8 +1,6 @@
 import streamlit as st
 from pathlib import Path
-import shutil
 from PIL import Image
-import os
 from io import BytesIO
 import pandas as pd
 import zipfile
@@ -30,21 +28,22 @@ def save_images():
             img_filename = Path(row['name'])
             img = Image.open(img_filename)
             img.save(img_filename)
-            zf.write(img_filename, os.path.basename(img_filename))
+            zf.write(img_filename, img_filename.name)
 
     zip_buffer.seek(0)
     return zip_buffer
 
 
 # Button to save all images
-if st.button("Download All Images"):
-    zip_buffer = save_images()
-    st.download_button(
-        "Download Zip", 
-        data=zip_buffer, 
-        file_name="images.zip", 
-        mime="application/zip"
-    )
+zip_buffer = save_images()
+st.write('---')
+st.download_button(
+    "Download All Images (Zip)", 
+    data=zip_buffer, 
+    file_name="images.zip", 
+    mime="application/zip"
+)
+st.write('---')
 
 
 for idx in range(len(data)):

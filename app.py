@@ -5,6 +5,7 @@ from io import BytesIO
 import pandas as pd
 import zipfile
 
+st.set_page_config(layout='wide')
 st.title('Hello')
 st.write('World')
 

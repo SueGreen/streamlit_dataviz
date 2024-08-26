@@ -25,6 +25,7 @@ data = {
 }
 data = pd.DataFrame.from_dict(data)
 
+st.dataframe(data)
 
 # Function to save all images in a zip file
 def save_images():

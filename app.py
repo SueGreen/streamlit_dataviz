@@ -1,6 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import shutil
+from PIL import Image
 
 st.title('Hello')
 st.write('World')
@@ -34,7 +35,7 @@ import zipfile
 
 # Sample data
 data = [
-    {"name": "imgs/image_sunset.jpeg"},
+    {"name": "imgs/images_sunset.jpeg"},
 ]
 
 ## Function to download and display high-quality images

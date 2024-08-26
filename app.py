@@ -4,7 +4,7 @@ import shutil
 from PIL import Image
 import os
 from io import BytesIO
-import requests
+import pandas as pd
 import zipfile
 
 st.title('Hello')
@@ -12,9 +12,12 @@ st.write('World')
 
 # Sample data
 data = [
-    {"name": "imgs/images_sunset.jpeg"},
-    {"name": "imgs/images_sunrise.jpg"},
+    {"name": "imgs/sunset.jpeg"},
+    {"name": "imgs/sunrise.jpg"},
+    {"name": "imgs/daylight.jpg"},
+    {"name": "imgs/night.jpg"},
 ]
+# data = pd.DataFrame.from_dict(data)
 
 
 # Function to save all images in a zip file

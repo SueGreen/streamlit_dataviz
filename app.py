@@ -54,6 +54,7 @@ def save_images():
             #img = download_image(row["image_url"])
             #img_filename = f"images/{row['name'].replace(' ', '_').lower()}.png"
             img_filename = Path(row['name'])
+            img = Image.open(img_filename)
             img.save(img_filename)
             zf.write(img_filename, os.path.basename(img_filename))
 
